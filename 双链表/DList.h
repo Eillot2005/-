@@ -21,6 +21,5 @@ public:
 	void sort();
 private:
 	node* head;
-
 };
 
