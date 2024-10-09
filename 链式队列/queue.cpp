@@ -17,7 +17,7 @@ queue::~queue()
 	}
 	delete rear;
 }
-void queue::push(int  data)
+void queue::push(int data)
 {
 	queueNode* temp = new queueNode;
 	temp->data = data;
@@ -29,13 +29,16 @@ int queue::pop()
 {
 	if (is_empty())
 	{
-		cout << "队列为空  ";
+		cout << "队列为空  " << endl;
 		return 0;
 	}
 	queueNode* temp = front->next;
 	int data = temp->data;
 	front->next = temp->next;
+	if (rear == temp)
+		rear = front;
 	delete temp;
+	cout << data << "  ";
 	return data;
 }
 int queue::get_front()
@@ -62,13 +65,31 @@ bool queue::is_empty()
 }
 void queue::clear()
 {
+	if (is_empty())
+	{
+		cout << "队列已经为空  " << endl;
+		return;
+	}
 	queueNode* temp = front->next;
 	while (temp != rear)
 	{
 		queueNode* t = temp->next;
-		delete temp;
+		delete[] temp;
 		temp = t;
 	}
-	delete rear;
+	delete temp;
 	rear = front;
+}
+int queue::size()
+{
+	if (is_empty())
+		return 0;
+	int count = 1;
+	queueNode* temp = front->next;
+	while (temp != rear)
+	{
+		count++;
+		temp = temp->next;
+	}
+	return count;
 }

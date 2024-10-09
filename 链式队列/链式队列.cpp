@@ -10,6 +10,8 @@ int main()
 	q.push(4);
 	q.push(5);
 	q.push(6);
+	cout << q.size() << endl;
+	q.clear();
 	q.pop();
 	q.pop();
 	q.pop();
@@ -17,4 +19,8 @@ int main()
 	q.pop();
 	q.pop();
 	q.pop();
+	cout << endl;
+	cout << q.size() << endl;
+	q.clear();
+	cout << q.size() << endl;
 }

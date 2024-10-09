@@ -18,5 +18,6 @@ public:
 	int get_rear();
 	bool is_empty();
 	void clear();
+	int size();
 };
 
